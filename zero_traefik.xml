@@ -3,7 +3,7 @@
   <Date>2021-02-07</Date>
   <Beta>False</Beta>
   <Name>Traefik</Name>
-  <Repository>traefik/traefik:latest</Repository>
+  <Repository>traefik:latest</Repository>
   <Registry>https://registry.hub.docker.com/_/traefik</Registry>
   <Network Default="bridge">bridge</Network>
   <Shell>sh</Shell>
@@ -16,7 +16,7 @@
   <Overview>Traefik is a modern reverse-proxy.</Overview>
   <Category>Network:Web, Network:Proxy</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/Zeropointer11/unraid_docker_templates/master/templates/Zero-Traefik.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/Zeropointer11/unraid_docker_templates/master/zero_traefik.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/benderstwin/docker-templates/master/images/traefik.png</Icon>
   <ExtraParams/>
   <PostArgs/>
