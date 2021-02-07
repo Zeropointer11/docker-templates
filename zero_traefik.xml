@@ -16,8 +16,8 @@
   <Overview>Traefik is a modern reverse-proxy.</Overview>
   <Category>Network:Web, Network:Proxy</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/Zeropointer11/unraid_docker_templates/master/zero_traefik.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/benderstwin/docker-templates/master/images/traefik.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/Zeropointer11/docker-templates/master/zero_traefik.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/Zeropointer11/docker-templates/master/images/traefik.png</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
