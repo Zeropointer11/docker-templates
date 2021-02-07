@@ -69,11 +69,11 @@
     </Variable>
     <Variable>
       <Name>CF_API_EMAIL</Name>
-      <Value>email</Value>
+      <Value></Value>
     </Variable>
     <Variable>
       <Name>CF_API_KEY</Name>
-      <Value>api_key</Value>
+      <Value></Value>
     </Variable>
   </Environment>
   <Labels>
@@ -123,6 +123,14 @@
   
   <Config Type="Variable" Name="Timezone" Target="TZ" Default="Europe/Vienna" Mode="" Description="Container Variable: TZ"  Display="always"
       Required="false" Mask="false">Europe/Vienna</Config>
+  <Config Type="Variable" Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID"  Display="always"
+      Required="false" Mask="false">99</Config>
+  <Config Type="Variable" Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID"  Display="always"
+      Required="false" Mask="false">Europe/Vienna</Config>
+  <Config Type="Variable" Name="CF_API_EMAIL" Target="CF_API_EMAIL" Default="" Mode="" Description="Container Variable: CF_API_EMAIL Cloudflare API Email adress"  Display="always"
+      Required="true" Mask="false">a@a.com</Config>
+  <Config Type="Variable" Name="CF_API_KEY" Target="CF_API_KEY" Default="" Mode="" Description="Container Variable: CF_API_KEY Cloudflaer API Key"  Display="always"
+      Required="true" Mask="false"></Config>
   
 
 </Container>
