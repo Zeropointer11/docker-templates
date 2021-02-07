@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Date>2021-02-07</Date>
+  <Beta>False</Beta>
+  <Name>Traefik</Name>
+  <Repository>traefik/traefik:latest</Repository>
+  <Registry>https://registry.hub.docker.com/_/traefik</Registry>
+  <Network Default="bridge">bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <BindTime>true</BindTime>
+  <Support>https://github.com/Zeropointer11/unraid_docker_templates/issues</Support>
+  <Project/>
+  <Changes>
+  </Changes>
+  <Overview>Traefik is a modern reverse-proxy.</Overview>
+  <Category>Network:Web, Network:Proxy</Category>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Zeropointer11/unraid_docker_templates/master/templates/Zero-Traefik.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/benderstwin/docker-templates/master/images/traefik.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <Description>Traefik is a modern reverse-proxy.</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/traefik/data</HostDir>
+      <ContainerDir>/etc/traefik</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/var/run/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>TZ</Name>
+      <Value>Europe/Vienna</Value>
+    </Variable>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>CF_API_EMAIL</Name>
+      <Value>email</Value>
+    </Variable>
+    <Variable>
+      <Name>CF_API_KEY</Name>
+      <Value>api_key</Value>
+    </Variable>
+  </Environment>
+  <Labels>
+    <Label>
+      <Value>true</Value>
+      <Name>traefik.enable</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>https</Value>
+      <Name>traefik.http.routers.traefik.entrypoints</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>Host(`traefik.example.com`)</Value>
+      <Name>traefik.http.routers.traefik.rule</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>api@internal</Value>
+      <Name>traefik.http.routers.traefik.service</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>secured@file</Value>
+      <Name>traefik.http.routers.traefik.middlewares</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>8080</Value>
+      <Name>traefik.http.services.traefik.loadbalancer.server.Port</Name>
+      <Mode/>
+    </Label>
+  </Labels>
+
+  <Config Type="Port" Name="Web Interface Port" Target="8080" Default="8080" Mode="tcp" Display="always" Required="true"
+      Description="This is Web UI port you can access via a web browser.">8080</Config>
+  <Config Type="Port" Name="HTTP Port" Target="80" Default="80" Mode="tcp" Display="always" Required="true"
+      Description="HTTP Entry Port">80</Config>
+  <Config Type="Port" Name="HTTPS Port" Target="443" Default="443" Mode="tcp" Display="always" Required="true"
+      Description="HTTPS Entry Port">443</Config>
+  
+  <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik/data" Mode="rw" Display="advanced-hide" Required="true"
+      Description="Traefik Config Path">/mnt/user/appdata/traefik/data</Config>
+  <Config Type="Path" Name="Docker socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Path to docker socket"  
+      Display="advanced" Required="true" Mask="false">/var/run/docker.sock</Config>
+  
+  <Config Type="Variable" Name="Timezone" Target="TZ" Default="Europe/Vienna" Mode="" Description="Container Variable: TZ"  Display="always"
+      Required="false" Mask="false">Europe/Vienna</Config>
+  
+
+</Container>
