@@ -88,7 +88,7 @@
       <Mode/>
     </Label>
     <Label>
-      <Value>Host(`traefik.example.com`)</Value>
+      <Value></Value>
       <Name>traefik.http.routers.traefik.rule</Name>
       <Mode/>
     </Label>
@@ -98,7 +98,7 @@
       <Mode/>
     </Label>
     <Label>
-      <Value>secured@file</Value>
+      <Value></Value>
       <Name>traefik.http.routers.traefik.middlewares</Name>
       <Mode/>
     </Label>
@@ -126,11 +126,28 @@
   <Config Type="Variable" Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID"  Display="always"
       Required="false" Mask="false">99</Config>
   <Config Type="Variable" Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID"  Display="always"
-      Required="false" Mask="false">Europe/Vienna</Config>
+      Required="false" Mask="false">100</Config>
   <Config Type="Variable" Name="CF_API_EMAIL" Target="CF_API_EMAIL" Default="" Mode="" Description="Container Variable: CF_API_EMAIL Cloudflare API Email adress"  Display="always"
-      Required="true" Mask="false">a@a.com</Config>
+      Required="true" Mask="false"></Config>
   <Config Type="Variable" Name="CF_API_KEY" Target="CF_API_KEY" Default="" Mode="" Description="Container Variable: CF_API_KEY Cloudflaer API Key"  Display="always"
       Required="true" Mask="false"></Config>
   
+  <Config Type="Label" Name="traefik.enable" Target="traefik.enable" Default="true" Mode="" Description="traefik.enable" Display="always" 
+      Required="true" Mask="false">true</Config>
+  <Config Type="Label" Name="traefik.http.routers.traefik.entrypoints" Target="traefik.http.routers.traefik.entrypoints" 
+      Default="https" Mode="" Description="traefik.http.routers.traefik.entrypoints" Display="always" 
+      Required="true" Mask="false">https</Config>
+  <Config Type="Label" Name="traefik.http.routers.traefik.rule" Target="traefik.http.routers.traefik.rule" 
+      Default="" Mode="" Description="traefik.http.routers.traefik.rule" Display="always" 
+      Required="true" Mask="false">Host(`traefik.example.com`)</Config>
+  <Config Type="Label" Name="traefik.http.routers.traefik.service" Target="traefik.http.routers.traefik.service" 
+      Default="api@internal" Mode="" Description="traefik.http.routers.traefik.service" Display="advanced" 
+      Required="true" Mask="false">api@internal</Config>
+  <Config Type="Label" Name="traefik.http.routers.traefik.middlewares" Target="traefik.http.routers.traefik.middlewares" 
+      Default="" Mode="" Description="traefik.http.routers.traefik.middlewares" Display="always" 
+      Required="true" Mask="false">secured@file</Config>
+  <Config Type="Label" Name="traefik.http.services.traefik.loadbalancer.server.Port" Target="traefik.http.services.traefik.loadbalancer.server.Port" 
+      Default="8080" Mode="" Description="traefik.http.services.traefik.loadbalancer.server.Port" Display="advanced" 
+      Required="true" Mask="false">8080</Config>
 
 </Container>
