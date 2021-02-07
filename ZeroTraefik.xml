@@ -116,10 +116,10 @@
   <Config Type="Port" Name="HTTPS Port" Target="443" Default="443" Mode="tcp" Display="always" Required="true"
       Description="HTTPS Entry Port">443</Config>
   
-  <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik/data" Mode="rw" Display="advanced-hide" Required="true"
+  <Config Type="Path" Name="Config Storage Path" Target="/etc/traefik" Default="/mnt/user/appdata/traefik/data" Mode="rw" Display="always" Required="true"
       Description="Traefik Config Path">/mnt/user/appdata/traefik/data</Config>
   <Config Type="Path" Name="Docker socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Path to docker socket"  
-      Display="advanced" Required="true" Mask="false">/var/run/docker.sock</Config>
+      Display="always" Required="true" Mask="false">/var/run/docker.sock</Config>
   
   <Config Type="Variable" Name="Timezone" Target="TZ" Default="Europe/Vienna" Mode="" Description="Container Variable: TZ"  Display="always"
       Required="false" Mask="false">Europe/Vienna</Config>
