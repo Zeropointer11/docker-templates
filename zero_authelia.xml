@@ -45,19 +45,19 @@
       <Value>Europe/Vienna</Value>
     </Variable>
     <Variable>
-      <Name>AUTHELIA_JWT_SECRET</Name>
+      <Name>AUTHELIA_JWT_SECRET_FILE</Name>
       <Value></Value>
     </Variable>
     <Variable>
-      <Name>AUTHELIA_SESSION_SECRET</Name>
+      <Name>AUTHELIA_SESSION_SECRET_FILE</Name>
       <Value></Value>
     </Variable>
     <Variable>
-      <Name>AUTHELIA_DUO_API_SECRET_KEY</Name>
+      <Name>AUTHELIA_DUO_API_SECRET_KEY_FILE</Name>
       <Value></Value>
     </Variable>
     <Variable>
-      <Name>AUTHELIA_NOTIFIER_SMTP_PASSWORD</Name>
+      <Name>AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE</Name>
       <Value></Value>
     </Variable>
   </Environment>
@@ -113,23 +113,23 @@
   
   <Config Type="Variable" Name="Timezone" Target="TZ" Default="Europe/Vienna" Mode="" Description="Container Variable: TZ"  Display="always"
       Required="false" Mask="false">Europe/Vienna</Config>
-  <Config Type="Variable" Name="AUTHELIA_JWT_SECRET" Target="AUTHELIA_JWT_SECRET" 
-      Default="" Mode="" Description="Container Variable: AUTHELIA_JWT_SECRET Secret to encrypt your jwt token"  
-      Display="always" Required="true" Mask="false"></Config>
-  <Config Type="Variable" Name="AUTHELIA_SESSION_SECRET" Target="AUTHELIA_SESSION_SECRET" 
-      Default="" Mode="" Description="Container Variable: AUTHELIA_SESSION_SECRET Secret to encrypt your session" 
-      Display="always" Required="true" Mask="false"></Config>
-  <Config Type="Variable" Name="AUTHELIA_DUO_API_SECRET_KEY" Target="AUTHELIA_DUO_API_SECRET_KEY" 
-      Default="" Mode="" Description="Container Variable: AUTHELIA_DUO_API_SECRET_KEY API Key for your duo application" 
-      Display="always" Required="true" Mask="false"></Config>
-  <Config Type="Variable" Name="AUTHELIA_NOTIFIER_SMTP_PASSWORD" Target="AUTHELIA_NOTIFIER_SMTP_PASSWORD" 
-      Default="" Mode="" Description="Container Variable: AUTHELIA_NOTIFIER_SMTP_PASSWORD SMTP Passwort" 
-      Display="always" Required="true" Mask="false"></Config>
+  <Config Type="Variable" Name="AUTHELIA_JWT_SECRET_FILE" Target="AUTHELIA_JWT_SECRET_FILE" 
+      Default="" Mode="" Description="Path to the JWT Secrets file"  
+      Display="always" Required="true" Mask="false">/config/secrets/jwt.secret</Config>
+  <Config Type="Variable" Name="AUTHELIA_SESSION_SECRET_FILE" Target="AUTHELIA_SESSION_SECRET_FILE" 
+      Default="" Mode="" Description="Path to the Session Secret file" 
+      Display="always" Required="true" Mask="false">/config/secrets/session.secret</Config>
+  <Config Type="Variable" Name="AUTHELIA_DUO_API_SECRET_KEY_FILE" Target="AUTHELIA_DUO_API_SECRET_KEY_FILE" 
+      Default="" Mode="" Description="Path to the DUO Secrests file" 
+      Display="always" Required="true" Mask="false">/config/secrets/duo.secret</Config>
+  <Config Type="Variable" Name="AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE" Target="AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE" 
+      Default="" Mode="" Description="Path to the SMTP Secret file" 
+      Display="always" Required="true" Mask="false">/config/secrets/smtp.secret</Config>
   
-  <Config Type="Label" Name="traefik.enable" Target="traefik.enable" Default="true" Mode="" Description="traefik.enable" Display="always" 
+  <Config Type="Label" Name="traefik.enable" Target="traefik.enable" Default="true" Mode="" Description="traefik.enable" Display="advanced" 
       Required="true" Mask="false">true</Config>
   <Config Type="Label" Name="traefik.http.routers.authelia.entrypoints" Target="traefik.http.routers.authelia.entrypoints" 
-      Default="https" Mode="" Description="traefik.http.authelia.traefik.entrypoints" Display="always" 
+      Default="https" Mode="" Description="traefik.http.authelia.traefik.entrypoints" Display="advanced" 
       Required="true" Mask="false">https</Config>
   <Config Type="Label" Name="traefik.http.routers.authelia.rule" Target="traefik.http.routers.authelia.rule" 
       Default="" Mode="" Description="traefik.http.routers.authelia.rule" Display="always" 
