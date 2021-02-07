@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Date>2021-02-07</Date>
+  <Beta>False</Beta>
+  <Name>Authelia</Name>
+  <Repository>authelia/authelia</Repository>
+  <Registry>https://hub.docker.com/r/authelia/authelia/</Registry>
+  <Network Default="bridge">bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <BindTime>true</BindTime>
+  <Support>https://github.com/Zeropointer11/unraid_docker_templates/issues</Support>
+  <Project/>
+  <Changes>
+  </Changes>
+  <Overview>Authelia Auth service</Overview>
+  <Category>Network:Web, Network:Auth</Category>
+  <WebUI>http://[IP]:[PORT:9091]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Zeropointer11/docker-templates/master/zero_authelia.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/Zeropointer11/docker-templates/master/images/authelia.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <Description>Authelia is an open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal. It acts as a companion of reverse proxies like nginx, Traefik or HAProxy to let them know whether queries should pass through. Instructions: https://github.com/ibracorp/authelia.</Description>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9091</HostPort>
+        <ContainerPort>9091</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/authelia</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Name>TZ</Name>
+      <Value>Europe/Vienna</Value>
+    </Variable>
+    <Variable>
+      <Name>AUTHELIA_JWT_SECRET</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>AUTHELIA_SESSION_SECRET</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>AUTHELIA_DUO_API_SECRET_KEY</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>AUTHELIA_NOTIFIER_SMTP_PASSWORD</Name>
+      <Value></Value>
+    </Variable>
+  </Environment>
+  <Labels>
+    <Label>
+      <Value>true</Value>
+      <Name>traefik.enable</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>https</Value>
+      <Name>traefik.http.routers.authelia.entrypoints</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value></Value>
+      <Name>traefik.http.routers.authelia.rule</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value></Value>
+      <Name>traefik.http.routers.authelia.middlewares</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>9091</Value>
+      <Name>traefik.http.services.authelia.loadbalancer.server.port</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value></Value>
+      <Name>traefik.http.middlewares.authelia.forwardauth.address</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value></Value>
+      <Name>traefik.http.middlewares.authelia.forwardauth.trustForwardHeader</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value></Value>
+      <Name>traefik.http.middlewares.authelia.forwardauth.authResponseHeaders</Name>
+      <Mode/>
+    </Label>
+  </Labels>
+
+  <Config Type="Port" Name="Web Interface Port" Target="9091" Default="9091" 
+      Mode="tcp" Display="always" Required="true"
+      Description="This is Web UI port you can access via a web browser.">9091</Config>
+  
+  <Config Type="Path" Name="Config Storage Path" Target="/config" Default="/mnt/user/appdata/authelia" Mode="rw" Display="always"
+      Required="true" Description="Authelia Config Path /config">/mnt/user/appdata/authelia</Config>
+  
+  <Config Type="Variable" Name="Timezone" Target="TZ" Default="Europe/Vienna" Mode="" Description="Container Variable: TZ"  Display="always"
+      Required="false" Mask="false">Europe/Vienna</Config>
+  <Config Type="Variable" Name="AUTHELIA_JWT_SECRET" Target="AUTHELIA_JWT_SECRET" 
+      Default="" Mode="" Description="Container Variable: AUTHELIA_JWT_SECRET Secret to encrypt your jwt token"  
+      Display="always" Required="true" Mask="false"></Config>
+  <Config Type="Variable" Name="AUTHELIA_SESSION_SECRET" Target="AUTHELIA_SESSION_SECRET" 
+      Default="" Mode="" Description="Container Variable: AUTHELIA_SESSION_SECRET Secret to encrypt your session" 
+      Display="always" Required="true" Mask="false"></Config>
+  <Config Type="Variable" Name="AUTHELIA_DUO_API_SECRET_KEY" Target="AUTHELIA_DUO_API_SECRET_KEY" 
+      Default="" Mode="" Description="Container Variable: AUTHELIA_DUO_API_SECRET_KEY API Key for your duo application" 
+      Display="always" Required="true" Mask="false"></Config>
+  <Config Type="Variable" Name="AUTHELIA_NOTIFIER_SMTP_PASSWORD" Target="AUTHELIA_NOTIFIER_SMTP_PASSWORD" 
+      Default="" Mode="" Description="Container Variable: AUTHELIA_NOTIFIER_SMTP_PASSWORD SMTP Passwort" 
+      Display="always" Required="true" Mask="false"></Config>
+  
+  <Config Type="Label" Name="traefik.enable" Target="traefik.enable" Default="true" Mode="" Description="traefik.enable" Display="always" 
+      Required="true" Mask="false">true</Config>
+  <Config Type="Label" Name="traefik.http.routers.authelia.entrypoints" Target="traefik.http.routers.authelia.entrypoints" 
+      Default="https" Mode="" Description="traefik.http.authelia.traefik.entrypoints" Display="always" 
+      Required="true" Mask="false">https</Config>
+  <Config Type="Label" Name="traefik.http.routers.authelia.rule" Target="traefik.http.routers.authelia.rule" 
+      Default="" Mode="" Description="traefik.http.routers.authelia.rule" Display="always" 
+      Required="true" Mask="false">Host(`example.com`)</Config>
+  <Config Type="Label" Name="traefik.http.routers.authelia.middlewares" Target="traefik.http.routers.authelia.middlewares" 
+      Default="" Mode="" Description="traefik.http.routers.authelia.middlewares" Display="always" 
+      Required="true" Mask="false">secHeaders@file</Config>
+  <Config Type="Label" Name="traefik.http.services.authelia.loadbalancer.server.port" Target="traefik.http.services.authelia.loadbalancer.server.port" 
+      Default="9091" Mode="" Description="traefik.http.services.authelia.loadbalancer.server.port" Display="advanced" 
+      Required="true" Mask="false">9091</Config>
+  <Config Type="Label" Name="traefik.http.middlewares.authelia.forwardauth.address" Target="traefik.http.middlewares.authelia.forwardauth.address" 
+      Default="" Mode="" Description="Put the internal IP:Port and the redirect url what you defined as rule" Display="always" 
+      Required="true" Mask="false">http://[IP]:9091/api/verify?rd=https://example.com</Config>
+  <Config Type="Label" Name="traefik.http.middlewares.authelia.forwardauth.trustForwardHeader" Target="traefik.http.middlewares.authelia.forwardauth.trustForwardHeader" 
+      Default="" Mode="" Description="traefik.http.middlewares.authelia.forwardauth.trustForwardHeader" Display="always" 
+      Required="true" Mask="false">true</Config>
+  <Config Type="Label" Name="traefik.http.middlewares.authelia.forwardauth.authResponseHeaders" Target="traefik.http.middlewares.authelia.forwardauth.authResponseHeaders" 
+      Default="" Mode="" Description="traefik.http.middlewares.authelia.forwardauth.authResponseHeaders" Display="always" 
+      Required="true" Mask="false">Remote-User, Remote-Groups</Config>
+
+</Container>
