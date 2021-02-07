@@ -30,6 +30,7 @@
         <ContainerPort>9091</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
+    </Publish>
   </Networking>
   <Data>
     <Volume>
