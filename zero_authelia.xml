@@ -16,7 +16,6 @@
   <Overview>Authelia Auth service</Overview>
   <Category>Network:Web, Network:Auth</Category>
   <WebUI>http://[IP]:[PORT:9091]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/Zeropointer11/docker-templates/master/zero_authelia.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/Zeropointer11/docker-templates/master/images/authelia.png</Icon>
   <ExtraParams/>
   <PostArgs/>
