@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>cf-companion</Name>
+  <Repository>tiredofit/traefik-cloudflare-companion:latest</Repository>
+  <Registry>https://hub.docker.com/r/tiredofit/traefik-cloudflare-companion</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview>Dockerfile to build a Container to automatically update Cloudflare DNS records upon container start. A time saver if you are regularly moving containers around to different systems. This will allow you to set multiple zone's you wish to update.&#xD;
+&#xD;
+This Container uses a customized Alpine Linux base which includes s6 overlay enabled for PID 1 Init capabilities, zabbix-agent compiled for individual container monitoring, Cron also installed along with other tools (bash,curl, less, logrotate, nano, vim) for easier management. It also supports sending to external SMTP servers..</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon/>
+  <ExtraParams>--restart always</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1613317684</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Dockerfile to build a Container to automatically update Cloudflare DNS records upon container start. A time saver if you are regularly moving containers around to different systems. This will allow you to set multiple zone's you wish to update.&#xD;
+&#xD;
+This Container uses a customized Alpine Linux base which includes s6 overlay enabled for PID 1 Init capabilities, zabbix-agent compiled for individual container monitoring, Cron also installed along with other tools (bash,curl, less, logrotate, nano, vim) for easier management. It also supports sending to external SMTP servers..</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/var/run/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>2</Value>
+      <Name>TRAEFIK_VERSION</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>CF_EMAIL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>CF_TOKEN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DOMAIN1</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>DOMAIN1_ZONE_ID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>TRUE</Value>
+      <Name>DOMAIN1_PROXIED</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels>
+    <Label>
+      <Value/>
+      <Name>traefik.http.routers.cf-companion-rtr.rule</Name>
+      <Mode/>
+    </Label>
+  </Labels>
+  <Config Name="/var/run/docker.sock" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Container Path: /var/run/docker.sock" Type="Path" Display="always" Required="true" Mask="false">/var/run/docker.sock</Config>
+  <Config Name="TRAEFIK_VERSION" Target="TRAEFIK_VERSION" Default="1|2" Mode="" Description="Container Variable: TRAEFIK_VERSION" Type="Variable" Display="always" Required="true" Mask="false">2</Config>
+  <Config Name="CF_EMAIL" Target="CF_EMAIL" Default="" Mode="" Description="Cloudflare Email same as Traefik" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="CF_TOKEN" Target="CF_TOKEN" Default="" Mode="" Description="Cloud flare API Key same as traefik" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="DOMAIN1" Target="DOMAIN1" Default="" Mode="" Description="Domain 1 you wish to update records for." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="DOMAIN1_ZONE_ID" Target="DOMAIN1_ZONE_ID" Default="" Mode="" Description="Domain 1 Zone ID from Cloudflare Overview page" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="DOMAIN1_PROXIED" Target="DOMAIN1_PROXIED" Default="TRUE|FALES" Mode="" Description="Domain 1 True or False if proxied&#13;&#10;Set this to true to enable Cloudflare proxy for the CNAME record." Type="Variable" Display="always" Required="true" Mask="false">TRUE</Config>
+  <Config Name="traefik.http.routers.cf-companion-rtr.rule" Target="traefik.http.routers.cf-companion-rtr.rule" Default="" Mode="" Description=" # Add hosts specified in rules here to force cf-companion to create the CNAMEs&#13;&#10;      # Since cf-companion creates CNAMEs based on host rules, this a workaround for non-docker/external apps&#13;&#10;&#13;&#10;HostHeader(`pihole.$DOMAINNAME`) || HostHeader(`hassio.$DOMAINNAME`)" Type="Label" Display="always" Required="false" Mask="false"/>
+</Container>
