@@ -54,6 +54,11 @@ This Container uses a customized Alpine Linux base which includes s6 overlay ena
     </Variable>
     <Variable>
       <Value/>
+      <Name>TARGET_DOMAIN</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value/>
       <Name>DOMAIN1</Name>
       <Mode/>
     </Variable>
@@ -79,6 +84,7 @@ This Container uses a customized Alpine Linux base which includes s6 overlay ena
   <Config Name="TRAEFIK_VERSION" Target="TRAEFIK_VERSION" Default="1|2" Mode="" Description="Container Variable: TRAEFIK_VERSION" Type="Variable" Display="always" Required="true" Mask="false">2</Config>
   <Config Name="CF_EMAIL" Target="CF_EMAIL" Default="" Mode="" Description="Cloudflare Email same as Traefik" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="CF_TOKEN" Target="CF_TOKEN" Default="" Mode="" Description="Cloud flare API Key same as traefik" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="TARGET_DOMAIN" Target="TARGET_DOMAIN" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="DOMAIN1" Target="DOMAIN1" Default="" Mode="" Description="Domain 1 you wish to update records for." Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="DOMAIN1_ZONE_ID" Target="DOMAIN1_ZONE_ID" Default="" Mode="" Description="Domain 1 Zone ID from Cloudflare Overview page" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="DOMAIN1_PROXIED" Target="DOMAIN1_PROXIED" Default="TRUE|FALES" Mode="" Description="Domain 1 True or False if proxied&#13;&#10;Set this to true to enable Cloudflare proxy for the CNAME record." Type="Variable" Display="always" Required="true" Mask="false">TRUE</Config>
