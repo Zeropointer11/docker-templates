@@ -15,7 +15,7 @@ This Container uses a customized Alpine Linux base which includes s6 overlay ena
   <Category/>
   <WebUI/>
   <TemplateURL/>
-  <Icon/>
+  <Icon>https://raw.githubusercontent.com/Zeropointer11/unraid-templates/master/images/cloudflareddns.png</Icon>
   <ExtraParams>--restart always</ExtraParams>
   <PostArgs/>
   <CPUset/>

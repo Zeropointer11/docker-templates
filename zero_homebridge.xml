@@ -76,6 +76,11 @@
       <Mode/>
     </Label>
     <Label>
+      <Value></Value>
+      <Name>traefik.http.routers.homebridge.rule</Name>
+      <Mode/>
+    </Label>
+    <Label>
       <Value>secured@file</Value>
       <Name>traefik.http.routers.homebridge.middlewares</Name>
       <Mode/>
@@ -95,4 +100,5 @@
   <Config Name="traefik.http.routers.homebridge.middlewares" Target="traefik.http.routers.homebridge.middlewares" Default="secured@file" Mode="" Description="Traefik middleware of the service values secured@file | secHeaders@file" Type="Label" Display="advanced" Required="true" Mask="false">secured@file</Config>
   <Config Name="traefik.http.services.homebridge.loadbalancer.server.Port" Target="traefik.http.services.homebridge.loadbalancer.server.Port" Default="8581" Mode="" Description="Port of the Service for Traefik. Must be the same as the Web UI Port" Type="Label" Display="always" Required="true" Mask="false">8581</Config>
   <Config Name="Path for the Configuration" Target="/homebridge" Default="/mnt/user/appdata/homebridge" Mode="rw" Description="Container Path: /homebridge" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/homebridge</Config>
+  <Config Type="Label" Name="traefik.http.routers.homebridge.rule" Target="traefik.http.routers.homebridge.rule" Default="" Mode="" Description="traefik.http.routers.homebridge.rule" Display="always" Required="true" Mask="false">Host(`homebridge.example.com`)</Config>
 </Container>
