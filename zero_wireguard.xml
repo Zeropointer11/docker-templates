@@ -55,7 +55,7 @@
       <Mode/>
     </Variable>
     <Variable>
-      <Value>zeropointer.duckdns.org</Value>
+      <Value>wireguard.domain.com</Value>
       <Name>SERVERURL</Name>
       <Mode/>
     </Variable>
