@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>wireguard</Name>
+  <Repository>ghcr.io/linuxserver/wireguard</Repository>
+  <Registry/>
+  <Network>config_default</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview/>
+  <Category>Security: Network:VPN</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/Zeropointer11/docker-templates/master/images/wireguard.png</Icon>
+  <ExtraParams>--cap-add=NET_ADMIN --cap-add=SYS_MODULE --sysctl="net.ipv4.conf.all.src_valid_mark=1" --restart unless-stopped </ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1613915550</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description/>
+  <Networking>
+    <Mode>config_default</Mode>
+    <Publish>
+      <Port>
+        <HostPort>51820</HostPort>
+        <ContainerPort>51820</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/wireguard/data/</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/lib/modules</HostDir>
+      <ContainerDir>/lib/modules</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>zeropointer.duckdns.org</Value>
+      <Name>SERVERURL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>51820</Value>
+      <Name>SERVERPORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>1</Value>
+      <Name>PEERS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>auto</Value>
+      <Name>PEERDNS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>10.13.13.0</Value>
+      <Name>INTERNAL_SUBNET</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0.0.0.0/0</Value>
+      <Name>ALLOWEDIPS</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Config" Target="/config" Default="" Mode="rw" Description="Contains all relevant configuration files." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/wireguard/data/</Config>
+  <Config Name="modules" Target="/lib/modules" Default="" Mode="rw" Description="Maps host's modules folder." Type="Path" Display="always" Required="true" Mask="false">/lib/modules</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="for UserID - see below for explanation" Type="Variable" Display="always" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="for GroupID " Type="Variable" Display="always" Required="true" Mask="false">100</Config>
+  <Config Name="SERVERURL" Target="SERVERURL" Default="" Mode="" Description="External IP or domain name for docker host. Used in server mode. If set to auto, the container will try to determine and set the external IP automatically" Type="Variable" Display="always" Required="false" Mask="false">wireguard.domain.com</Config>
+  <Config Name="SERVERPORT" Target="SERVERPORT" Default="" Mode="" Description="External port for docker host. Used in server mode." Type="Variable" Display="always" Required="false" Mask="false">51820</Config>
+  <Config Name="PEERS" Target="PEERS" Default="" Mode="" Description="Number of peers to create confs for. Required for server mode. Can be a list of names too: myPC,myPhone,myTablet..." Type="Variable" Display="always" Required="true" Mask="false">1</Config>
+  <Config Name="PEERDNS" Target="PEERDNS" Default="" Mode="" Description="DNS server set in peer/client configs (can be set as 8.8.8.8). Used in server mode. Defaults to auto, which uses wireguard docker host's DNS via included CoreDNS forward." Type="Variable" Display="always" Required="false" Mask="false">auto</Config>
+  <Config Name="INTERNAL_SUBNET" Target="INTERNAL_SUBNET" Default="" Mode="" Description="Internal subnet for the wireguard and server and peers (only change if it clashes). Used in server mode." Type="Variable" Display="always" Required="false" Mask="false">10.13.13.0</Config>
+  <Config Name="ALLOWEDIPS" Target="ALLOWEDIPS" Default="" Mode="" Description="The IPs/Ranges that the peers will be able to reach using the VPN connection. If not specified the default value is: '0.0.0.0/0, ::0/0' This will cause ALL traffic to route through the VPN, if you want split tunneling, set this to only the IPs you would like to use the tunnel AND the ip of the server's WG ip, such as 10.13.13.1." Type="Variable" Display="always" Required="false" Mask="false">0.0.0.0/0</Config>
+  <Config Name="Port" Target="51820" Default="" Mode="udp" Description="Container Port: 51820" Type="Port" Display="always" Required="true" Mask="false">51820</Config>
+</Container>
