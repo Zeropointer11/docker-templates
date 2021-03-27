@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>whoami</Name>
+  <Repository>containous/whoami</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview/>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1616879928</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data/>
+  <Environment/>
+  <Labels>
+    <Label>
+      <Value>Host(`whoami.example.com`)</Value>
+      <Name>traefik.http.routers.whoami.rule</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>https</Value>
+      <Name>traefik.http.routers.whoami.entrypoints</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>80</Value>
+      <Name>traefik.http.services.whoami.loadbalancer.server.port</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>true</Value>
+      <Name>traefik.enable</Name>
+      <Mode/>
+    </Label>
+  </Labels>
+  <Config Name="traefik.http.routers.whoami.rule" Target="traefik.http.routers.whoami.rule" Default="" Mode="" Description="Container Label: traefik.http.routers.whoami.rule" Type="Label" Display="always" Required="true" Mask="false">Host(`whoami.example.com`)</Config>
+  <Config Name="traefik.http.routers.whoami.entrypoints" Target="traefik.http.routers.whoami.entrypoints" Default="" Mode="" Description="Container Label: traefik.http.routers.whoami.entrypoints" Type="Label" Display="advanced-hide" Required="true" Mask="false">https</Config>
+  <Config Name="traefik.http.services.whoami.loadbalancer.server.port" Target="traefik.http.services.whoami.loadbalancer.server.port" Default="" Mode="" Description="Container Label: traefik.http.services.whoami.loadbalancer.server.port" Type="Label" Display="advanced-hide" Required="true" Mask="false">80</Config>
+  <Config Name="traefik.enable" Target="traefik.enable" Default="" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="advanced-hide" Required="true" Mask="false">true</Config>
+</Container>

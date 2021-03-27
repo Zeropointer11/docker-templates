@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>blogr-www</Name>
+  <Repository>dniel/blogr-www</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project/>
+  <Overview/>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1616880498</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data/>
+  <Environment/>
+  <Labels>
+    <Label>
+      <Value>Host(`www.example.com`)</Value>
+      <Name>traefik.http.routers.www.rule</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>true</Value>
+      <Name>traefik.enable</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>https</Value>
+      <Name>traefik.http.routers.www.entrypoints</Name>
+      <Mode/>
+    </Label>
+    <Label>
+      <Value>80</Value>
+      <Name>traefik.http.services.www.loadbalancer.server.port</Name>
+      <Mode/>
+    </Label>
+  </Labels>
+  <Config Name="traefik.http.routers.www.rule" Target="traefik.http.routers.www.rule" Default="" Mode="" Description="Container Label: traefik.http.routers.www.rule" Type="Label" Display="always" Required="true" Mask="false">Host(`www.example.com`)</Config>
+  <Config Name="traefik.enable" Target="traefik.enable" Default="" Mode="" Description="Container Label: traefik.enable" Type="Label" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="traefik.http.routers.www.entrypoints" Target="traefik.http.routers.www.entrypoints" Default="" Mode="" Description="Container Label: traefik.http.routers.www.entrypoints" Type="Label" Display="advanced" Required="true" Mask="false">https</Config>
+  <Config Name="traefik.http.services.www.loadbalancer.server.port" Target="traefik.http.services.www.loadbalancer.server.port" Default="" Mode="" Description="Container Label: traefik.http.services.www.loadbalancer.server.port" Type="Label" Display="advanced-hide" Required="true" Mask="false">80</Config>
+</Container>
