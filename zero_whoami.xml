@@ -49,6 +49,8 @@
       <Mode/>
     </Label>
   </Labels>
+
+  
   <Config Name="traefik.http.routers.whoami.rule" Target="traefik.http.routers.whoami.rule" Default="" Mode="" Description="Container Label: traefik.http.routers.whoami.rule" Type="Label" Display="always" Required="true" Mask="false">Host(`whoami.example.com`)</Config>
   <Config Name="traefik.http.routers.whoami.entrypoints" Target="traefik.http.routers.whoami.entrypoints" Default="" Mode="" Description="Container Label: traefik.http.routers.whoami.entrypoints" Type="Label" Display="advanced-hide" Required="true" Mask="false">https</Config>
   <Config Name="traefik.http.services.whoami.loadbalancer.server.port" Target="traefik.http.services.whoami.loadbalancer.server.port" Default="" Mode="" Description="Container Label: traefik.http.services.whoami.loadbalancer.server.port" Type="Label" Display="advanced-hide" Required="true" Mask="false">80</Config>
